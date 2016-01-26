@@ -1,0 +1,14 @@
+{
+	"ImportPath": "github.com/mikeshimura/simplereactjs",
+	"GoVersion": "go1.5",
+	"Packages": [
+		"github.com/mikeshimura/simplereactjs/..."
+	],
+	"Deps": [
+		{
+			"ImportPath": "github.com/zenazn/goji",
+			"Comment": "v0.9.0-25-gf11b3b8",
+			"Rev": "f11b3b82931df3c540a0a960b6b1de60094d33d6"
+		}
+	]
+}
