@@ -59,17 +59,17 @@
         var rcds = $w.app.state.rcds;
         var object_list = [];
         for (var i = 0; i < rcds.length; i++) {
-      object_list.push(
-        <Item rcd={rcds[i]} no={i}/>
-      );
-    }
-        return (  
+            object_list.push(
+                <Item rcd={rcds[i]} no={i}/>
+            );
+        }
+         return (  
             <div>
         <b.Row style={{margin:20}}>
-            <b.Col xs={1}  >
+            <b.Col lg={1} sm={2} xs={3}  >
             <b.Button bsSize="small" bsStyle="primary" onClick={this.dataRead} name="btnSearch">データ読込 </b.Button>
             </b.Col>
-            <b.Col xs={1}  >
+            <b.Col lg={1} sm={2} xs={3}  >
             <b.Button bsSize="small" bsStyle="primary" onClick={this.dialogTest} name="btnSearch2">ダイアログ</b.Button>
             </b.Col>
         </b.Row>
@@ -91,53 +91,54 @@
             </tbody>
         </table>        
         <b.Row style={{margin:20}}>
-            <b.Col xs={1}  >
+            <b.Col lg={1} sm={1} xs={3}  >
             <b.Button bsSize="small" bsStyle="primary" onClick={this.updateClick} name="btnUpdate">更新</b.Button>
             </b.Col>
-            <b.Col xs={1}  >
+            <b.Col lg={1} sm={1} xs={3} >
             <b.Button bsSize="small" bsStyle="primary" onClick={this.newClick} name="btnNew">新規</b.Button>
             </b.Col>
-            <b.Col xs={1}  >
+            <b.Col lg={1} sm={1} xs={3} >
             <b.Button bsSize="small" bsStyle="primary" onClick={this.deleteClick} name="btnDelete">削除</b.Button>
             </b.Col>
         </b.Row>  
         <b.Row style={{margin:20}}>
-            <b.Col xs={1}  >名前
+            <b.Col lg={1} sm={1} xs={2} >名前
             </b.Col>
-            <b.Col xs={2}  ><b.Input type="text" name="form#name" value={$w.app.state.form.name}
-            onChange={$c.onChange} />
+            <b.Col lg={4} sm={4} xs={8}   ><b.Input type="text" name="form#name" value={$w.app.state.form.name}
+            onChange={$c.onChange} style={{width:"120"}}/>
             </b.Col>
         </b.Row> 
         <b.Row style={{margin:20}}>
-            <b.Col xs={1}  >メール
+            <b.Col lg={1} sm={1} xs={2}  >メール
             </b.Col>
-            <b.Col xs={4}  ><b.Input type="text" name="form#mail" value={$w.app.state.form.mail}
-            onChange={$c.onChange} />
+            <b.Col lg={4} sm={4} xs={8}  ><b.Input type="text" name="form#mail" value={$w.app.state.form.mail}
+            onChange={$c.onChange}  style={{width:"200"}}/>
             </b.Col>
         </b.Row> 
         <b.Row style={{margin:20,height:40}}>
-            <b.Col xs={1}  >Action
+            <b.Col lg={1} sm={1} xs={2}  >Action
             </b.Col>
-            <b.Col xs={2}  ><b.Input type="checkbox" name="form#action" 
+            <b.Col lg={4} sm={4} xs={8}  ><b.Input type="checkbox" name="form#action" 
             checked={$w.app.state.form.action?"checked":""}
             onChange={$c.onChecked} style={{width:"20",height:"20",marginTop:-10
             ,marginLeft:0}}/>
             </b.Col>
         </b.Row> 
-        <b.Row style={{margin:20}}>
-            <b.Col xs={1}  >CAT
+          <b.Row style={{margin:20}}>
+            <b.Col lg={1} sm={1} xs={2}   >CAT
             </b.Col>
-            <b.Col xs={2}  >
-            <$c.SelectOption options={$w.catMap} 
-            style={{height:30, width:88}}
-             name={"form#cat"}	onChange={$c.onChange} value={$w.app.state.form.cat}/>
+            <b.Col lg={4} sm={4} xs={8}   >
+           <b.Input type="select" label='' name={"form#cat"} 
+              onChange={$c.onChange}  style={{height:30, width:88}}>
+                {$c.Option($w.app.state.form.cat,$w.catMap)}
+            </b.Input>
             </b.Col>
         </b.Row> 
         <b.Row style={{margin:20}}>
-            <b.Col xs={1}  >ID
+            <b.Col lg={1} sm={1} xs={2} >ID
             </b.Col>
-            <b.Col xs={1}  ><b.Input type="text" value={$w.app.state.form.id}
-            disabled />
+            <b.Col lg={4} sm={4} xs={8}  ><b.Input type="text" value={$w.app.state.form.id}
+            disabled  style={{width:"60"}}/>
             </b.Col>
         </b.Row> 
         <$c.Alert/>          

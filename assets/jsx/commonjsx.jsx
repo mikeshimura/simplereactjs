@@ -51,26 +51,14 @@ renderOverlay: function () {
   }
 });  
 
-$c.SelectOption = React.createClass({
-    render: function() {
-         var options = []
-         for (key in this.props.options){
+  $c.Option= function(value,map){
+    var options = []
+    for (key in map){
           options.push( 
            <option  
-          key={this.props.name+":"+key}
-          value={key} label={this.props.options[key]} 
-          selected={(key==this.props.value)?"selected":""}
-          >{this.props.options[key]}</option> )
-
-        }
-          return ( 
-            <b.Input type="select" label='' 
-                multiple={this.props.multiple}
-                name={this.props.name} style={this.props.style}
-                onChange={this.props.onChange}
-                >
-                {options}
-            </b.Input>
-          );
-    }
-  });
+           value={key} label={map[key]} 
+          selected={(key==value)?"selected":""}
+          >{map[key]}</option> )
+     }  
+     return options  
+  }
