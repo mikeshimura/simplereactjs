@@ -56,12 +56,16 @@ $c.SelectOption = React.createClass({
         this.props.onChange(e);
       },
     render: function() {
-         var options = this.props.options.map(
-             function(opt, i){
-          return <option key={i} value={opt.value} label={opt.label} 
-          selected={(i==this.props.value)?"selected":""}
-          key={"NO"+i}>{opt.label}</option>;
-        }, this);
+         var options = []
+         for (key in this.props.options){
+          options.push( 
+           <option  
+          key={this.props.name+":"+key}
+          value={key} label={this.props.options[key]} 
+          selected={(key==this.props.value)?"selected":""}
+          >{this.props.options[key]}</option> )
+
+        }
           return ( 
             <b.Input type="select" label='' 
                 multiple={this.props.multiple}

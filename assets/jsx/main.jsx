@@ -7,32 +7,23 @@
      "2":"CAT2",
      "3":"CAT3",
  }
- $w.catOption = [
-    {
-      value: "",
-      label: ""
-    }, {
-      value: "1",
-      label: "CAT1"
-    }, {
-      value: "2",
-      label: "CAT2"
-    }, {
-      value: "3",
-      label: "CAT3"
-    }
-  ];
+
  var b = ReactBootstrap;
  var Item = React.createClass({ 
   render: function() {
     var c = this.props.rcd;
     return (
-      <tr key={this.props.no} id={"row"+this.props.no} onClick={$w.app.rowClick}>
-        <td style={{width:$w.tableColW.c1,border:1,borderStyle:"solid"}}>{c.name}</td>
-        <td style={{width:$w.tableColW.c2,border:1,borderStyle:"solid"}}>{c.mail}</td>
-        <td style={{width:$w.tableColW.c3,border:1,borderStyle:"solid"}}>{c.action?"Ｘ":""}</td>
-        <td style={{width:$w.tableColW.c4,border:1,borderStyle:"solid"}}>{$w.catMap[c.cat]}</td>
-        <td style={{width:$w.tableColW.c5,border:1,borderStyle:"solid"}}>{c.id}</td>
+      <tr key={this.props.no*10} id={"row"+this.props.no} onClick={$w.app.rowClick}>
+        <td key={this.props.no*10+1}
+            style={{width:$w.tableColW.c1,border:1,borderStyle:"solid"}}>{c.name}</td>
+        <td key={this.props.no*10+2}
+            style={{width:$w.tableColW.c2,border:1,borderStyle:"solid"}}>{c.mail}</td>
+        <td key={this.props.no*10+3}
+            style={{width:$w.tableColW.c3,border:1,borderStyle:"solid"}}>{c.action?"Ｘ":""}</td>
+        <td key={this.props.no*10+4}
+            style={{width:$w.tableColW.c4,border:1,borderStyle:"solid"}}>{$w.catMap[c.cat]}</td>
+        <td key={this.props.no*10+5}
+            style={{width:$w.tableColW.c5,border:1,borderStyle:"solid"}}>{c.id}</td>
       </tr>
     );
   }
@@ -136,7 +127,7 @@
             <b.Col xs={1}  >CAT
             </b.Col>
             <b.Col xs={2}  >
-            <$c.SelectOption options={$w.catOption} style={{height:30}}
+            <$c.SelectOption options={$w.catMap} style={{height:30}}
              name={"form#cat"}	onChange={$c.onChange} value={$w.app.state.form.cat}/>
             </b.Col>
         </b.Row> 
