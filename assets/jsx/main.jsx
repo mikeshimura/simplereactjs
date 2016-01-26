@@ -128,14 +128,15 @@
             <b.Col xs={1}  >CAT
             </b.Col>
             <b.Col xs={2}  >
-            <$c.SelectOption options={$w.catMap} style={{height:30}}
+            <$c.SelectOption options={$w.catMap} 
+            style={{height:30, width:88}}
              name={"form#cat"}	onChange={$c.onChange} value={$w.app.state.form.cat}/>
             </b.Col>
         </b.Row> 
         <b.Row style={{margin:20}}>
             <b.Col xs={1}  >ID
             </b.Col>
-            <b.Col xs={2}  ><b.Input type="text" value={$w.app.state.form.id}
+            <b.Col xs={1}  ><b.Input type="text" value={$w.app.state.form.id}
             disabled />
             </b.Col>
         </b.Row> 

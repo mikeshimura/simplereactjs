@@ -52,9 +52,6 @@ renderOverlay: function () {
 });  
 
 $c.SelectOption = React.createClass({
-    handleChange: function (e) {
-        this.props.onChange(e);
-      },
     render: function() {
          var options = []
          for (key in this.props.options){
@@ -70,7 +67,7 @@ $c.SelectOption = React.createClass({
             <b.Input type="select" label='' 
                 multiple={this.props.multiple}
                 name={this.props.name} style={this.props.style}
-                onChange={this.handleChange}
+                onChange={this.props.onChange}
                 >
                 {options}
             </b.Input>
