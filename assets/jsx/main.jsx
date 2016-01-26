@@ -13,7 +13,8 @@
   render: function() {
     var c = this.props.rcd;
     return (
-      <tr key={this.props.no*10} id={"row"+this.props.no} onClick={$w.app.rowClick}>
+      <tr key={this.props.no*10} id={"row"+this.props.no} onClick={$w.app.rowClick}
+        style={{backgroundColor: (this.props.no==$w.app.state.selRow)?"#FFD0D0":"#FFFFFF"}} >
         <td key={this.props.no*10+1}
             style={{width:$w.tableColW.c1,border:1,borderStyle:"solid"}}>{c.name}</td>
         <td key={this.props.no*10+2}
