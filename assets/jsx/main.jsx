@@ -146,7 +146,13 @@
         )
     } ,
     callback: function(res,status) { 
-        $w.app.setState({rcds:res})
+        var para =
+            {
+                rcds:res,
+                selRow:-1,
+                form:$c.deepCopy($w.app.state.blank)
+            }
+         $w.app.setState(para)
     },    
     dataRead: function() {    
         $c.ajaxPostJson("dataget",{},this.callback)
@@ -156,7 +162,7 @@
         
         var para={
             selRow:parseInt(row,10),
-            form:$.extend(true,{},$w.app.state.rcds[row])
+            form:$c.deepCopy($w.app.state.rcds[row])
         }
         $w.app.setState(para)
     },
@@ -164,7 +170,7 @@
       
         var para={
             selRow:-1,
-            form:$.extend(true,{},$w.app.state.blank)
+            form:$c.deepCopy($w.app.state.blank)
         }
         $w.app.setState(para)
     },
@@ -181,20 +187,20 @@
         var para=$w.app.state
         para.rcds.splice(para.selRow,1)
         para.selRow=-1
-        para.form=$.extend(true,{},$w.app.state.blank)
+        para.form=$c.deepCopy($w.app.state.blank)
         $w.app.setState(para)
     },    
     updateClick:function(e){
         var para=$w.app.state
         if ($w.app.state.form.id==null){
             var len=$w.app.state.rcds.length
-            para.rcds[len]=$.extend(true,{},$w.app.state.form)
+            para.rcds[len]=$c.deepCopy($w.app.state.form)
             para.rcds[len]["id"]=this.getId()
             para.selRow=-1
-            para.form=$.extend(true,{},$w.app.state.blank)
+            para.form=$c.deepCopy($w.app.state.blank)
             
         } else {
-            para.rcds[$w.app.state.selRow]=$.extend(true,{},$w.app.state.form)
+            para.rcds[$w.app.state.selRow]=$c.deepCopy($w.app.state.form)
         }
         
         $w.app.setState(para)

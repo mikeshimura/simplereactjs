@@ -66,4 +66,6 @@
 		var data = JSON.stringify(param);
 		$c.ajaxPost(url, data, "text/json", callback);
 	}
-  
+    $c.deepCopy = function(obj) {
+        return $.extend(true,{},obj)
+    }
